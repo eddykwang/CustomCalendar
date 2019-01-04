@@ -20,7 +20,7 @@
       android:layout_centerInParent="true"
       android:background="@{ vmdate.isToday ? @drawable/bg_today : null}"
       android:gravity="center"
-      android:text="@{vmdate.dateObservable}"
+      android:text="@{vmdate.isCurrentMonth ? vmdate.dateObservable : ``}"
       android:textAlignment="center"
       android:textColor="@{vmdate.isCurrentMonth ? @android:color/white : @android:color/darker_gray}"/>
 

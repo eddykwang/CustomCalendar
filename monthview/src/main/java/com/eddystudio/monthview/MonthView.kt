@@ -18,7 +18,7 @@ class MonthView @JvmOverloads constructor(context: Context, attributeSet: Attrib
   private val recyclerView: RecyclerView
   private val monthTv: TextView
   private var month: Int
-  private var year: Int = 0
+  private var year: Int
 
   init {
     inflate(context, R.layout.layout_month_view, this)
