@@ -1,0 +1,10 @@
+<resources>
+  <string name="app_name">Month View</string>
+  <string name="Monday">Mon</string>
+  <string name="Tuesday">Tue</string>
+  <string name="Wednesday">Wen</string>
+  <string name="Thursday">Thur</string>
+  <string name="Friday">Fri</string>
+  <string name="Saturday">Sat</string>
+  <string name="Sunday">Sun</string>
+</resources>
