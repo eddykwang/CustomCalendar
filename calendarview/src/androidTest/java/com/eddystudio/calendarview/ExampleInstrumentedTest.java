@@ -1,4 +1,4 @@
-package com.eddystudio.monthview;
+package com.eddystudio.calendarview;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
