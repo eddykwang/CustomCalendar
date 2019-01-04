@@ -37,39 +37,36 @@ class MonthView @JvmOverloads constructor(context: Context, attributeSet: Attrib
 
   private fun createView() {
     val dateList = ArrayList<DateViewModel>()
-    val myCalendar = Calendar.getInstance()
-
-    myCalendar.apply {
+    val myCalendar = Calendar.getInstance().apply {
       set(Calendar.YEAR, year)
       set(Calendar.MONTH, month)
       set(Calendar.DAY_OF_MONTH, 1)
     }
+    val currentMonthCal = myCalendar.clone() as Calendar
 
-
-    val simpleDateFormat = SimpleDateFormat("MMM yyyy", Locale("en", "PST"))
+    val simpleDateFormat = SimpleDateFormat("MMM yyyy", Locale("en", "US"))
     monthTv.text = simpleDateFormat.format(myCalendar.time)
 
     val monthBeginningCell = myCalendar.get(Calendar.DAY_OF_WEEK) - 1
     myCalendar.add(Calendar.DAY_OF_MONTH, -monthBeginningCell)
 
     while(dateList.size < 42) {
-      dateList.add(DateViewModel(myCalendar.time, month))
-      myCalendar.add(Calendar.DAY_OF_MONTH, 1)
-    }
 
-    if(dateList[34].date.month < myCalendar.get(Calendar.DAY_OF_MONTH)) {
-      for(i in 1..7) {
-        dateList.removeAt(dateList.size - i)
+      if(dateList.size == 35 && dateList[34].myCalendar.get(Calendar.MONTH) > currentMonthCal.get(Calendar.MONTH) ){
+        break
       }
+
+      dateList.add(DateViewModel(myCalendar, month))
+      myCalendar.add(Calendar.DAY_OF_MONTH, 1)
     }
 
     recyclerView.apply {
       adapter = QuickRecyclerViewAdapter<DateViewModel>(dateList, R.layout.layout_date, BR.vmdate)
-      layoutManager = GridLayoutManager(context, 7)
+      layoutManager =  GridLayoutManager(context, 7)
     }
   }
 
-  class Builder(val monthView: MonthView) {
+  class Builder(private val monthView: MonthView) {
 
     fun build() {
       monthView.createView()

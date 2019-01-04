@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
     setContentView(R.layout.activity_main)
     val monthView = findViewById<MonthView>(R.id.month_view)
     MonthView.Builder(monthView)
-        .setYearAndMonth(2019, 1)
+//        .setYearAndMonth(2019, 1)
         .build()
   }
 }
