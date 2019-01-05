@@ -9,7 +9,7 @@ import java.util.*
 class CalendarViewAdapter(val list: ArrayList<Calendar>) :
     RecyclerView.Adapter<CalendarViewAdapter.CalendarViewHolder>() {
 
-    val viewPool = RecyclerView.RecycledViewPool()
+    private val viewPool = RecyclerView.RecycledViewPool()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CalendarViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(
@@ -28,7 +28,7 @@ class CalendarViewAdapter(val list: ArrayList<Calendar>) :
         holder.bind(list[position].get(Calendar.YEAR), list[position].get(Calendar.MONTH), viewPool)
     }
 
-    class CalendarViewHolder(val monthView: MonthView) : RecyclerView.ViewHolder(monthView) {
+    class CalendarViewHolder(private val monthView: MonthView) : RecyclerView.ViewHolder(monthView) {
 
         fun bind(year: Int, month: Int, viewPool: RecyclerView.RecycledViewPool) {
             MonthView.Builder(monthView)
