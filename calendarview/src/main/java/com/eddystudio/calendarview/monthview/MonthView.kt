@@ -19,6 +19,7 @@ class MonthView @JvmOverloads constructor(context: Context, attributeSet: Attrib
     private val monthTv: TextView
     private var month: Int
     private var year: Int
+    lateinit var viewPool: RecyclerView.RecycledViewPool
 
     init {
         inflate(context, R.layout.layout_month_view, this)
@@ -66,6 +67,8 @@ class MonthView @JvmOverloads constructor(context: Context, attributeSet: Attrib
                 R.layout.layout_date,
                 BR.vmdate
             )
+            setRecycledViewPool(viewPool)
+            isNestedScrollingEnabled = true
             layoutManager = GridLayoutManager(context, 7)
         }
     }
@@ -78,6 +81,10 @@ class MonthView @JvmOverloads constructor(context: Context, attributeSet: Attrib
 
         fun setYearAndMonth(year: Int, month: Int): Builder {
             monthView.setYearAndMonth(year, month)
+            return this
+        }
+        fun setViewPool(viewPool: RecyclerView.RecycledViewPool) :Builder{
+            monthView.viewPool = viewPool
             return this
         }
     }

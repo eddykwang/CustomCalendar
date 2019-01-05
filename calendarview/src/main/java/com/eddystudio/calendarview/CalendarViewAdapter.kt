@@ -8,26 +8,33 @@ import java.util.*
 
 class CalendarViewAdapter(val list: ArrayList<Calendar>) :
     RecyclerView.Adapter<CalendarViewAdapter.CalendarViewHolder>() {
-  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CalendarViewHolder {
-    val view = LayoutInflater.from(parent.context).inflate(R.layout.layout_calendar_single_month, parent, false)
-    return CalendarViewHolder(view as MonthView)
-  }
 
-  override fun getItemCount(): Int {
-    return list.size
-  }
+    val viewPool = RecyclerView.RecycledViewPool()
 
-  override fun onBindViewHolder(holder: CalendarViewHolder, position: Int) {
-    holder.bind(list[position].get(Calendar.YEAR), list[position].get(Calendar.MONTH))
-  }
-
-
-  class CalendarViewHolder(val monthView: MonthView) : RecyclerView.ViewHolder(monthView) {
-
-    fun bind(year: Int, month: Int) {
-      MonthView.Builder(monthView)
-          .setYearAndMonth(year, month)
-          .build()
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CalendarViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(
+            R.layout.layout_calendar_single_month,
+            parent,
+            false
+        ) as MonthView
+        return CalendarViewHolder(view)
     }
-  }
+
+    override fun getItemCount(): Int {
+        return list.size
+    }
+
+    override fun onBindViewHolder(holder: CalendarViewHolder, position: Int) {
+        holder.bind(list[position].get(Calendar.YEAR), list[position].get(Calendar.MONTH), viewPool)
+    }
+
+    class CalendarViewHolder(val monthView: MonthView) : RecyclerView.ViewHolder(monthView) {
+
+        fun bind(year: Int, month: Int, viewPool: RecyclerView.RecycledViewPool) {
+            MonthView.Builder(monthView)
+                .setYearAndMonth(year, month)
+                .setViewPool(viewPool)
+                .build()
+        }
+    }
 }
