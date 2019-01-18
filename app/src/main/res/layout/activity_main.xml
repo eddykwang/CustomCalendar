@@ -7,51 +7,53 @@
     tools:context=".MainActivity">
 
 
-    <androidx.core.widget.NestedScrollView
+    <!--<androidx.core.widget.NestedScrollView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="vertical">-->
+
+    <com.eddystudio.calendarview.CalendarView
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:id="@+id/calendar_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"/>
 
+    <!--<com.eddystudio.calendarview.monthview.MonthView-->
+    <!--android:id="@+id/month_view"-->
+    <!--android:layout_margin="8dp"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"/>-->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <!--<com.eddystudio.calendarview.monthview.MonthView-->
+    <!--android:id="@+id/month_view2"-->
+    <!--android:layout_margin="8dp"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"/>-->
 
-            <com.eddystudio.calendarview.CalendarView
-                android:id="@+id/calendar_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+    <!--<com.eddystudio.calendarview.monthview.MonthView-->
+    <!--android:id="@+id/month_view3"-->
+    <!--android:layout_margin="8dp"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"/>-->
 
-            <!--<com.eddystudio.calendarview.monthview.MonthView-->
-            <!--android:id="@+id/month_view"-->
-            <!--android:layout_margin="8dp"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"/>-->
+    <!--<com.eddystudio.calendarview.monthview.MonthView-->
+    <!--android:id="@+id/month_view4"-->
+    <!--android:layout_margin="8dp"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"/>-->
 
-            <!--<com.eddystudio.calendarview.monthview.MonthView-->
-            <!--android:id="@+id/month_view2"-->
-            <!--android:layout_margin="8dp"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"/>-->
-
-            <!--<com.eddystudio.calendarview.monthview.MonthView-->
-            <!--android:id="@+id/month_view3"-->
-            <!--android:layout_margin="8dp"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"/>-->
-
-            <!--<com.eddystudio.calendarview.monthview.MonthView-->
-            <!--android:id="@+id/month_view4"-->
-            <!--android:layout_margin="8dp"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"/>-->
-
-            <!--<com.eddystudio.calendarview.monthview.MonthView-->
-            <!--android:id="@+id/month_view5"-->
-            <!--android:layout_margin="8dp"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"/>-->
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+    <!--<com.eddystudio.calendarview.monthview.MonthView-->
+    <!--android:id="@+id/month_view5"-->
+    <!--android:layout_margin="8dp"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"/>-->
+    <!--</LinearLayout>-->
+    <!--</androidx.core.widget.NestedScrollView>-->
 
 </RelativeLayout>
